@@ -27,3 +27,16 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * "State" of an event is usually fairly very small and is normally represented in some structured format (JSON).
 - Event in kafka is modelled as a Key/Value pair.
 
+## Topics:
+- Kafka's fundamental unit of event organization is called "Topic".
+- Named container for similar events.
+- Can duplicate data between topics
+- They are durable logs of events.
+- Logs data structure are append only. i.e. we always write at end.
+    * Can only seek by offset.
+    * Not indexed.
+    * Logs can only be read by maybe seeking to an arbitrary offset in the log and then scanning sequential log entries.
+- Kafka topics are not indexed. We can seek to an offset and scan forward from there..
+- Events in logs (topics) are immutable. i.e. once something has happened, it is exceedingly dificult/impossible to make it unhappen.
+- Kafka topics can be configured to messages in them to expire after they've reached a certain age.
+- We can also configure if a topic is reached a specific size, delete/clean up old messages. But age/retention period is more typical thing to configure rather than size. They can be upto few seconds, years or literally up to inifinity.
