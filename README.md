@@ -71,3 +71,17 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - Every component of the Kafka platform that is not a `Kafka Broker` is at bottom either a `Producer`, or a `Consumer`, or both.
 - `Producer` is the one who makes the decision about which `partition` to send each message to, whether to round-robin keyless messages, or to compute the destination partition by hashing the key.
 - In a real sense, partitioning lives in the `Producer`.
+
+## Consumers:
+- Using the `Consumer API` is similar in principle to the `Producer`.
+- We can subscribe to one or more topics.
+- We can subscribe to topic(s) by passing exact topic names or regular expression that matches some topics.
+- When messages are available on those topics, they come back in a collection called `ConsumerRecords`.
+- `ConsumerRecords` contains individual instances of messages in the form of instances of an object called `ConsumerRecord`.
+- `ConsumerRecord` object is the key value pair of actual message.
+- In Kafka, scaling consumer groups is more or less automatic.
+- A single instance of a consuming application will always receive the messages from all of the partitions in the topic it's subscribed to.
+- Each message in each partition will come in order, messages between the partitions may not come in order.
+- When we add new instance of consuming application and use same `Consumer Group Id`, that triggers an automatic rebalancing process. The Kafka cluster with client node will attempt to distribute partitions fairly between the instances of same `Consumer Group`
+- Rebalancing process repeats each time we add or remove a `Consumer Group Instance`. This makes each consumer application horizontally and elastically scalable by default.
+- If we had a topic with 10 partitions, we could deploy as many as 10 co `Consumer Group` instances and expect them all to participate in processing events. If we deploy an 11th instance for same `Consumer Group`, it would be idle, because there will no partition assigned to it.
