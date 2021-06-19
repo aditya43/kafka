@@ -48,3 +48,10 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - If a message is not having a key, then message that we write will be distributed round-robin amoungst topics partitions.
 - If a message has a "Key", we use it to figure out which partition of the topic this message belongs to.
 - Messages with a same "Key", always go into same partition and therefore always be in strict guarenteed order.
+
+## Brokers:
+- Physical infrastructure standpoint, Kafka is composed of a network of machines called Brokers.
+- Broker is nothing but a Computer/instance or a container running the Kafka process.
+- Each broker hosts some set of Kafka partitions.
+- Each broker handles read and write requests.
+- Broker also manage replication of partitions.
