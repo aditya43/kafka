@@ -40,3 +40,11 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - Events in logs (topics) are immutable. i.e. once something has happened, it is exceedingly dificult/impossible to make it unhappen.
 - Kafka topics can be configured to messages in them to expire after they've reached a certain age.
 - We can also configure if a topic is reached a specific size, delete/clean up old messages. But age/retention period is more typical thing to configure rather than size. They can be upto few seconds, years or literally up to inifinity.
+
+## Partitions:
+- Kafka is a distributed system. i.e. it is designed to operate across a number of computers.
+- Kafka gives us ability to partition topics.
+- Partitioning takes the single Topic Log and breaks it into multiple logs, each of which can live on a separate node in Kafka cluster.
+- If a message is not having a key, then message that we write will be distributed round-robin amoungst topics partitions.
+- If a message has a "Key", we use it to figure out which partition of the topic this message belongs to.
+- Messages with a same "Key", always go into same partition and therefore always be in strict guarenteed order.
