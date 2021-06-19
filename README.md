@@ -1,2 +1,20 @@
-# kafka
-Kafka | Personal Notes
+# Kafka
+Personal Notes
+
+## Author
+Aditya Hajare ([Linkedin](https://in.linkedin.com/in/aditya-hajare)).
+
+## Current Status
+WIP (Work In Progress)!
+
+## License
+Open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+-----------
+
+## Kafka Intro:
+- It is an event streaming platform used to collect, store and process real time data streams at scale.
+- It has numerous use cases like distributed logging, stream processing and pub-sub messaging.
+- Kafka internally is loosely typed but externally or outside it's not loosely typed. For e.g. the programming language that we are using outside is not loosely typed, there's probably some kind of structure to the data. And so going back and forth between the way that key/value pair, that event is represented in your language's type system and the representation inside Kafka - Kafka famously calls that the process of serialization and de-serialization. Serialized format is generally JSON, Protobuf etc.
+- "Key" part of Kafka object is probably not a unique identifier for the event. It's more likely an identifier of some entity in the system, like a User or an Order or a particular connected device.
+- "Keys" play crucial part in Kafka because it helps Kafka achieve parallelism and data locality and things like that.
