@@ -57,3 +57,11 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - Broker also manage replication of partitions.
 
 ## Replication:
+- Underlying storage are susceptible to failures. So we need to copy partition data to several other brokers.
+- Those copies are called `Follower Replicas`.
+- Whereas the main partition is called the `Leader Replica`.
+- Every partition that gets replicated has **one** `Leader Replica` and **N-1** `Follower Replicas`.
+- When we produce data to the partition, we are producing it to `Leader Replica`.
+- When we are writing data to a partition or reading data from partition, we are talking to `Leader Replica`.
+- `Leader Replica` and `Follower Replica` work together to get the replication done so that new writes are going to `Follower Replica` and not just be on the `Leader Replica` all the time.
+- This is an automated process. By default `replication` is turned `on` in Kafka.
