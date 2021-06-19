@@ -48,6 +48,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - If a message is not having a key, then message that we write will be distributed round-robin amoungst topics partitions.
 - If a message has a "Key", we use it to figure out which partition of the topic this message belongs to.
 - Messages with a same "Key", always go into same partition and therefore always be in strict guarenteed order.
+- `Partitions` are what take a single `topic` and break it up into many individual logs that can be hosted on different `brokers`.
 
 ## Brokers:
 - Physical infrastructure standpoint, Kafka is composed of a network of machines called Brokers.
@@ -65,3 +66,8 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - When we are writing data to a partition or reading data from partition, we are talking to `Leader Replica`.
 - `Leader Replica` and `Follower Replica` work together to get the replication done so that new writes are going to `Follower Replica` and not just be on the `Leader Replica` all the time.
 - This is an automated process. By default `replication` is turned `on` in Kafka.
+
+## Producers:
+- Every component of the Kafka platform that is not a `Kafka Broker` is at bottom either a `Producer`, or a `Consumer`, or both.
+- `Producer` is the one who makes the decision about which `partition` to send each message to, whether to round-robin keyless messages, or to compute the destination partition by hashing the key.
+- In a real sense, partitioning lives in the `Producer`.
