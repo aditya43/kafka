@@ -111,3 +111,12 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - Integrates within our services as a library.
 - Runs in the context of our application.
 - Does not require special infrastructure.
+
+## ksqlDB
+- A database optimized for stream processing.
+- Runs on its own scalable, fault-tolerant cluster adjacent to the Kafka cluster.
+- Stream processing programs written in SQL.
+- Provides command line interface.
+- Provides REST Api for application integration.
+- Provides Kafka Connect integration.
+- Overall we can think of ksqlDB as a stand-alone SQL-powered stream-processing engine that performs continuous processing of event streams and exposes the results to applications in a very database-like way.
