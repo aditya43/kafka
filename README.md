@@ -97,3 +97,17 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 ```
 - It is designed to be scalable and fault tolerant. i.e. it can run multiple `Kafka Connect` workers on individual nodes.
 - For e.g. Streaming data from Kafka to Elastic Search.
+
+## Kafka Streams
+- In a growing Kafka based application, `Consumers` tend to grow in complexity, maybe `Producers` don't too much but `Consumers` definitely do.
+- If your stream processing application goes down, it's `state` goes with it.
+- **Kafka Streams application is a Consumer Group!**
+- `Kafka Streams` is a JAVA API.
+- `Kafka Streams` primitives: Filtering, grouping, aggregating, joining and more..
+- Scalable, Fault-tolerant state management.
+- Scalable conputation based on `Consumer Groups`.
+- `Kafka Streams` API helps with solving `distributed state problems`.
+- It manages `state` off `heap`, persists it to local disk and persist that same state to internal `topics` in Kafka cluster.
+- Integrates within our services as a library.
+- Runs in the context of our application.
+- Does not require special infrastructure.
