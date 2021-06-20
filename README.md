@@ -85,3 +85,15 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - When we add new instance of consuming application and use same `Consumer Group Id`, that triggers an automatic rebalancing process. The Kafka cluster with client node will attempt to distribute partitions fairly between the instances of same `Consumer Group`
 - Rebalancing process repeats each time we add or remove a `Consumer Group Instance`. This makes each consumer application horizontally and elastically scalable by default.
 - If we had a topic with 10 partitions, we could deploy as many as 10 co `Consumer Group` instances and expect them all to participate in processing events. If we deploy an 11th instance for same `Consumer Group`, it would be idle, because there will no partition assigned to it.
+
+## Kafka Connect
+- It is an ecosystem of pluggable connectors. i.e. Data integration system and ecosystem.
+- Because some other systems are not kafka.
+- External client process; does not run on brokers.
+- For Kafka cluster, it is like a `Producer` or `Consumer` or both.
+- Kafka client Being a client application, it runs as a server process on a server/hardware that is independent of a Kafka Brokers themselves.
+```go
+[DATA STORE] --> [KAFKA CONNECT] --> [KAFKA CLUSTER] --> [KAFKA CONNECT] --> [DATA SINK]
+```
+- It is designed to be scalable and fault tolerant. i.e. it can run multiple `Kafka Connect` workers on individual nodes.
+- For e.g. Streaming data from Kafka to Elastic Search.
